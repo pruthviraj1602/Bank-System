@@ -21,4 +21,9 @@ public class userController {
    public User getUserByCustomerId(@PathVariable Integer customerId){
        return userSerImpl.getUserByCustomerId(customerId);
    }
+
+   @DeleteMapping("/deleteUser/{customerId}")
+   public boolean deleteCustomerById(@PathVariable Integer customerId){
+       return userSerImpl.deleteCustomerByCustomer(customerId);
+   }
 }

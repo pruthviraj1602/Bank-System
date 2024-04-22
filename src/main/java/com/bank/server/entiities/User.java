@@ -11,7 +11,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int customerId;
-    private String CustomerName;
+    private String customerName;
     @Column(unique = true)
     private String customerContact;
     @Column(unique = true)
@@ -20,7 +20,7 @@ public class User {
     private String loginData;
     private String logoutTime;
 
-    @OneToOne(mappedBy = "user",cascade = CascadeType.REMOVE)
+    @OneToOne(mappedBy = "user",cascade = CascadeType.REMOVE,orphanRemoval = true)
     @JoinColumn(name="user_account")
     @JsonManagedReference
     private Account account;

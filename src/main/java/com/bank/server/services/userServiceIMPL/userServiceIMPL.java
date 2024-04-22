@@ -24,4 +24,10 @@ public class userServiceIMPL implements userService {
     public User getUserByCustomerId(Integer customerId) {
         return userRepo.getUserByCustomerId(customerId);
     }
+
+    @Override
+    public boolean deleteCustomerByCustomer(Integer customerId) {
+        Integer i = userRepo.deleteUserByCustomerId(customerId);
+        return i == 1;
+    }
 }

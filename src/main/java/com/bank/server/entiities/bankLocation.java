@@ -1,5 +1,6 @@
 package com.bank.server.entiities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -13,6 +14,7 @@ public class bankLocation {
     private String state;
     private String country;
 
+    @JsonBackReference
     @OneToOne
     private bankDetail bankDetail;
 }

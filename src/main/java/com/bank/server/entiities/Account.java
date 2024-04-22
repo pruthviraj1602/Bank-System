@@ -1,6 +1,7 @@
 package com.bank.server.entiities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jdk.jfr.DataAmount;
 import lombok.Data;
@@ -24,8 +25,10 @@ public class Account {
     private User user;
 
    @OneToOne
+   @JsonManagedReference
     private bankDetail bankDetail;
 
+    @JsonManagedReference
    @OneToMany(mappedBy = "account",cascade = CascadeType.REMOVE)
    private List<Transaction> transactions;
 }

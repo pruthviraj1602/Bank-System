@@ -8,4 +8,5 @@ public interface userService {
 
     public User insert(User user);
     public User getUserByCustomerId(Integer customerId);
+    public boolean deleteCustomerByCustomer(Integer customerId);
 }
