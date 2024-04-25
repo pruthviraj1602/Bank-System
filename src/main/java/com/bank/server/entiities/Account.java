@@ -19,14 +19,15 @@ public class Account {
     @Column(unique = true)
     private String accountNumber;
     private float accountBalance;
+    private boolean enable;
 
     @OneToOne
     @JsonBackReference
     private User user;
 
-   @OneToOne
    @JsonManagedReference
-    private bankDetail bankDetail;
+   @ManyToMany
+    private List<bankDetail> bankDetail;
 
     @JsonManagedReference
    @OneToMany(mappedBy = "account",cascade = CascadeType.REMOVE)

@@ -19,8 +19,9 @@ public class User {
     private String customerPassword;
     private String loginData;
     private String logoutTime;
+    private boolean enable;
 
-    @OneToOne(mappedBy = "user",cascade = CascadeType.REMOVE,orphanRemoval = true)
+    @OneToOne(mappedBy = "user",cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JoinColumn(name="user_account")
     @JsonManagedReference
     private Account account;

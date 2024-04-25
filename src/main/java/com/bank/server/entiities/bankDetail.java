@@ -16,12 +16,10 @@ public class bankDetail {
     private String bankIFSC;
 
     @JsonBackReference
-    @OneToOne(mappedBy = "bankDetail",cascade = CascadeType.REMOVE)
-    @JoinColumn(name="account_bankDetail")
+    @Transient
     private Account account;
 
     @JsonManagedReference
     @OneToOne(mappedBy = "bankDetail",cascade = CascadeType.REMOVE)
-    @JoinColumn(name="bankDetail_Location")
     private bankLocation bankLocation;
 }
