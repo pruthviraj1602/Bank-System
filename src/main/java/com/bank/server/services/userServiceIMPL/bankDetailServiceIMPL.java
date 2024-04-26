@@ -15,4 +15,9 @@ public class bankDetailServiceIMPL implements bankDetailService {
     public bankDetail addBankDetail(bankDetail bankDetail) {
         return bankDetailRepo.save(bankDetail);
     }
+
+    @Override
+    public bankDetail getBankDetailByBranchId(Integer branchId) {
+        return bankDetailRepo.getBankDetailByBranchId(branchId);
+    }
 }

@@ -3,6 +3,7 @@ package com.bank.server.services.userServiceIMPL;
 import com.bank.server.entiities.Account;
 import com.bank.server.entiities.User;
 import com.bank.server.repositories.accountRepository;
+import com.bank.server.repositories.transactionRepository;
 import com.bank.server.repositories.userRepository;
 import com.bank.server.services.accountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ public class accountServiceIMPL implements accountService {
     @Autowired
     public accountRepository accountRepo;
 
+    @Autowired
+    public transactionRepository transactionRepo;
     @Autowired
     public userRepository userRepo;
 
@@ -35,12 +38,15 @@ public class accountServiceIMPL implements accountService {
     }
 
     @Override
-    public Account setEnableUser(String accountNumber) {
+    public Account setEnableAccount(String accountNumber) {
         Account acc = accountRepo.getAccountByAccountNumber(accountNumber);
       if (acc!=null){
           acc.setEnable(true);
-          return accountRepo.save(acc);
+          Account save = accountRepo.save(acc);
+          accountRepo.save(save);
       }
         return null;
     }
+
+
 }

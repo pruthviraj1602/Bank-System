@@ -8,5 +8,7 @@ public interface accountService {
     public Account addAccount(Account account);
     public Account getAccountByAccountNumber(String accountNumber);
 
-    public Account setEnableUser(String accountNumber);
+    public Account setEnableAccount(String accountNumber);
+
+
 }
